@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-// Referencja do AudioSource
+    public Transform SpawnLocation;
+[SerializeField] private Slider healthBar;
 [SerializeField] AudioSource characterSounds;
 // Referencja do klipu audio skoku
 [SerializeField] AudioClip jump;
@@ -43,6 +44,7 @@ void Start()
 // Update is called once per frame
 void Update()
 {
+    UpdateHealthBar();
     float moveHorizontal = Input.GetAxis("Horizontal");
     float moveVertical = Input.GetAxis("Vertical");
 
@@ -184,13 +186,24 @@ private void OnTriggerEnter(Collider other)
     if (health <= 0)
     {
     // Aktywowanie animacji śmierci
-    animator.SetBool("Die", true);
+    //animator.SetBool("Die", true);
     // Usunięcie broni
     ChooseWeapon(Weapons.None);
+    transform.position=SpawnLocation.position;
+    health = 100;
+
     // Wyłączenie skryptu PlayerController, co uniemożliwia ruch gracza
-    this.enabled = false;
+    //this.enabled = false;
     //Przetestujemy to wkrótce, jak tylko zaimplementujemy przeciwników!
     }
+    
+}
+
+
+
+private void UpdateHealthBar()
+{
+healthBar.value = (float)health / 100;
 }
 }
 

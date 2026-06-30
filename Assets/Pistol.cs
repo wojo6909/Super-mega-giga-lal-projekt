@@ -14,7 +14,7 @@ public class Pistol : Weapon
     auto = false;
     ammoCurrent = 15;
     ammoMax = 15;
-    ammoBackPack = 60;
+    ammoBackPack = 1000;
     }
    
     protected override void OnShoot()

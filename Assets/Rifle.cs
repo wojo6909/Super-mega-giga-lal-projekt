@@ -13,7 +13,7 @@ public class Rifle : Pistol
         auto = true;
         ammoCurrent = 35;
         ammoMax = 35;
-        ammoBackPack = 90;
+        ammoBackPack = 1000;
     }
 
 

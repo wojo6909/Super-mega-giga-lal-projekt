@@ -14,7 +14,7 @@ public class MiniGun : Weapon
     auto = true;
     ammoCurrent = 100;
     ammoMax = 100;
-    ammoBackPack = 300;
+    ammoBackPack = 1300;
 
 
 
